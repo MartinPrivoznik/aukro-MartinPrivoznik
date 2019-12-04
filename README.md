@@ -13,7 +13,7 @@
 ```
           1) Download project
           2) Make sure your local server is online
-          3) Migrate AukroContext.cs in DataManagement project
+          3) Change database connection string and migrate AukroContext.cs in DataManagement project
           4) Navigate to folder **Data Management** in cmd
           5) Type 'Dotnet run' (This deploys API server-side application to your local server)
           6) In Data module in folder Models\Constants\Universe.cs change URL to http://YOUR-IPV4-ADDRESS:5001/
