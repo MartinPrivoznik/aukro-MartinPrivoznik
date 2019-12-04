@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="UI.Views.RegisterPage"
+             Title="{Binding Title}"
+             NavigationPage.HasNavigationBar="True">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout Margin="5,5,5,5">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Username:"/>
+                    <Label Text="This field is mandatory!" TextColor="Red" IsVisible="{Binding UsernameWrittenCheck}"/>
+                </StackLayout>
+                <Entry Text="{Binding Username}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Password:"/>
+                    <Label Text="This field is mandatory!" TextColor="Red" IsVisible="{Binding PasswordWrittenCheck}"/>
+                </StackLayout>
+                <Entry Text="{Binding Password}" IsPassword="True"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="First name:"/>
+                    <Label Text="This field is mandatory!" TextColor="Red" IsVisible="{Binding FirstNameWrittenCheck}"/>
+                </StackLayout>
+                <Entry Text="{Binding FirstName}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Last name:"/>
+                    <Label Text="This field is mandatory!" TextColor="Red" IsVisible="{Binding LastNameWrittenCheck}"/>
+                </StackLayout>
+                <Entry Text="{Binding LastName}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Tel. number:"/>
+                    <Label Text="This field is mandatory!" TextColor="Red" IsVisible="{Binding TelNumberWrittenCheck}"/>
+                </StackLayout>
+                <Entry Text="{Binding PhoneNumber}"/>
+                <Button Text="Register" Command="{Binding RegisterCommand}"/>
+            </StackLayout>
+            <ActivityIndicator Color="Blue" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" AbsoluteLayout.LayoutFlags="PositionProportional" IsRunning="{Binding IsBusy}"/>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="UI.Views.MainTabbedPage"
+            xmlns:views="clr-namespace:UI.Views">
+
+    <TabbedPage.Children>
+        <views:MainPage Title="Store" Icon="baseline_shopping_cart_black_18dp.png"/>
+        <views:OwnSaleItemsPage Title="My items" Icon="baseline_visibility_black_18dp.png"/>
+        <views:PersonalSettingsPage Title="My account" Icon="baseline_person_black_18dp.png"/>
+    </TabbedPage.Children>
+</TabbedPage>

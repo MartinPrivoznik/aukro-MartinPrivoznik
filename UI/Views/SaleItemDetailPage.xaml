@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="UI.Views.SaleItemDetailPage">
+    <ContentPage.Content>
+            <Grid Margin="5,5,5,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Label Text="{Binding SaleItem.Name}" FontSize="Large" TextColor="Black"/>
+                    <Label Text=""/>
+                    <Label Text="Description :"/>
+                    <Label Text="{Binding SaleItem.Description}" LineBreakMode="WordWrap"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Seller : "/>
+                        <Label Text="{Binding SaleItem.OwnerName}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Seller phone num. : "/>
+                        <Label Text="{Binding SaleItem.OwnerPhoneNumber}"/>
+                    </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Auction ends : "/>
+                    <Label Text="{Binding AuctionEnding}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                        <Label Text="Actual auction winner : " IsVisible="{Binding CheckAnyAuctionWinner}"/>
+                        <Label Text="{Binding SaleItem.AuctionWinner}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Grid.Column="0" VerticalOptions="End">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="End">
+                        <Label Text="Time added : "/>
+                        <Label Text="{Binding SaleItem.TimeAdded}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Grid.Column="1" VerticalOptions="End" Margin="10,0,1,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Auction price : "/>
+                        <Label Text="{Binding SaleItem.AuctionPrice}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Solid price : " TextColor="Red"/>
+                        <Label Text="{Binding SaleItem.SolidPrice}" TextColor="Red"/>
+                    </StackLayout>
+                </StackLayout>
+                <Button Text="Buy now" BackgroundColor="#FF0064FF" Command="{Binding BuyNowCommand}" Grid.Column="0" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,4,2,0" CornerRadius="5"/>
+                <Button Text="Inc. auction price" BackgroundColor="Default" Command="{Binding PlaceAuctionPriceCommand}" Grid.Column="1" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="2,4,0,0" CornerRadius="5"/>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

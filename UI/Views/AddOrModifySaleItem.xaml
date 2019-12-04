@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="UI.Views.AddOrModifySaleItem">
+    <ContentPage.Content>
+        <StackLayout Margin="5,5,5,5">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Name:"/>
+                <Label Text="This field is mandatory!" TextColor="Red" IsVisible="{Binding NameWrittenCheck}"/>
+            </StackLayout>
+            <Entry Text="{Binding Name}"/>
+            <Label Text="Description:"/>
+            <Editor Text="{Binding Description}" HeightRequest="80"/>
+            <Label Text="Auction starting price:"/>
+            <Entry Text="{Binding AuctionPrice}"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Solid price:"/>
+                <Label Text="This field is mandatory!" TextColor="Red" IsVisible="{Binding PriceWrittenCheck}"/>
+            </StackLayout>
+            <Entry Text="{Binding SolidPrice}"/>
+
+            <Button Text="{Binding ButtonText}" Command="{Binding AddSaleItemCommand}"/>
+            <ActivityIndicator Color="Blue" IsRunning="{Binding IsBusy}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
