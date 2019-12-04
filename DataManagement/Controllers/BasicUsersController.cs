@@ -25,6 +25,7 @@ namespace DataManagement.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BasicUser>>> GetBasicUser()
         {
+            //Get all users - include their sell stock
             return await _context.BasicUser.Include(e => e.SaleItem).ToListAsync();
         }
 
@@ -46,6 +47,7 @@ namespace DataManagement.Controllers
         [HttpGet("byusername")]
         public async Task<ActionResult<BasicUser>> GetBasicUserByUserName(string username)
         {
+            //Username is unique
             var basicUser = _context.BasicUser.Where(e => e.UserName == username).FirstOrDefault();
 
             if (basicUser == null)
@@ -59,6 +61,7 @@ namespace DataManagement.Controllers
         [HttpGet("authenticate")]
         public async Task<ActionResult<string>> AuthenticateUser(string username, string password)
         {
+            //Returns user in case it is in database
             var basicUser = _context.BasicUser.Where(usr => usr.UserName == username && usr.Password == password).Include(e => e.SaleItem).FirstOrDefault();
 
             if (basicUser == null)
@@ -75,6 +78,7 @@ namespace DataManagement.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBasicUser(int id, BasicUser basicUser)
         {
+            //Adjusting user
             if (id != basicUser.Id)
             {
                 return BadRequest();
@@ -107,6 +111,7 @@ namespace DataManagement.Controllers
         [HttpPost]
         public async Task<ActionResult<BasicUser>> PostBasicUser(BasicUser basicUser)
         {
+            //Register
             _context.BasicUser.Add(basicUser);
             await _context.SaveChangesAsync();
 
