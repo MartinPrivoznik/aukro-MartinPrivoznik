@@ -1,5 +1,5 @@
 # aukro-app
- - Mobile bazaar app with API data management using Visual studio 2k19
+ - Mobile bazaar app with API data management using C#
  - Application was tested on **Android version 4.4 (Kitkat)** but works either for latest   versions of Android or even for IOS
  - Reason for making this project is testing Entity framework with ASP.NET Core
  
